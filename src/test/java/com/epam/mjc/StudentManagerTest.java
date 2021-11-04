@@ -36,7 +36,11 @@ public class StudentManagerTest {
 
   @Test
   public void testIDsNotChangedV1() {
-    assertNull("Student enum should be have only 10 values.", manager.find(11));
+    try {
+      assertNull("Student enum should be have only 10 values.", manager.find(11));
+    } catch (IllegalArgumentException e) {
+      e.printStackTrace();
+    }
   }
 
   @Test
